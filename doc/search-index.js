@@ -1,0 +1,4 @@
+var searchIndex = JSON.parse('{\
+"package_file_verify":{"doc":"","t":[4,13,13,13,3,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11],"n":["CheckResult","Failed","Passed","Unsupported","VerificationResult","borrow","borrow","borrow_mut","borrow_mut","from","from","into","into","to_string","try_from","try_from","try_into","try_into","type_id","type_id","unknown"],"q":["package_file_verify","","","","","","","","","","","","","","","","","","","",""],"d":["","","","","","","","","","","","","","Return the string representation of the check result","","","","","","",""],"i":[0,1,1,1,0,1,2,1,2,1,2,1,2,2,1,2,1,2,1,2,2],"f":[null,null,null,null,null,[[]],[[]],[[]],[[]],[[]],[[]],[[]],[[]],[[],["string",3]],[[],["result",4]],[[],["result",4]],[[],["result",4]],[[],["result",4]],[[],["typeid",3]],[[],["typeid",3]],[[]]],"p":[[4,"CheckResult"],[3,"VerificationResult"]]}\
+}');
+if (window.initSearch) {window.initSearch(searchIndex)};
