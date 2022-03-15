@@ -21,5 +21,7 @@ fn main() {
     let verifier = get_verifier()
         .expect("failed to get verifier method");
     
-    verifier(&options.file_path);
+    let result = verifier(&options.file_path)
+        .expect("failed to get verification result");
+    println!("{:?}", result)
 }
