@@ -7,5 +7,12 @@ description = "Verify if a given file is currently in the deployed state accordi
 [dependencies]
 os_info = { version = "3", default-features = false }
 log = { version = "0.4" }
-env_logger = "0.9"
-clap = { version = "3.1", features = ["derive"] }
+env_logger = { version = "0.9", optional = true }
+clap = { version = "3.1", features = ["derive"], optional = true }
+
+[features]
+cli = ["env_logger", "clap"]
+
+[[bin]]
+name = "cli"
+required-features = ["cli"]
