@@ -1,6 +1,7 @@
 use log::{debug, warn};
 
 use os_info;
+use os_info::Type;
 
 use crate::result::VerificationResult;
 use super::dpkg;
@@ -15,11 +16,11 @@ pub fn get_verifier() -> Option<Verifier> {
 }
 
 /// Internal method for converting the os type to the appropriate verification
-fn get_verifier_method(os_type: os_info::Type) -> Option<Verifier> {
+fn get_verifier_method(os_type: Type) -> Option<Verifier> {
     match os_type {
-        os_info::Type::Debian
-        | os_info::Type::Ubuntu
-        | os_info::Type::Raspbian => {
+        Type::Debian
+        | Type::Ubuntu
+        | Type::Raspbian => {
             debug!("Using dpkg verifier for OS {}", os_type);
             Some(dpkg::verify)
         },
