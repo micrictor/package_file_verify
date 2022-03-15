@@ -5,6 +5,7 @@ use os_info::Type;
 
 use crate::result::VerificationResult;
 use super::dpkg;
+use super::rpm;
 
 type Verifier = fn(file_path: &str) -> Option<VerificationResult>;
 
@@ -24,6 +25,15 @@ fn get_verifier_method(os_type: Type) -> Option<Verifier> {
             debug!("Using dpkg verifier for OS {}", os_type);
             Some(dpkg::verify)
         },
+        Type::Redhat
+        | Type::RedHatEnterprise
+        | Type::Amazon
+        | Type::CentOS
+        | Type::Fedora
+        | Type::OracleLinux => {
+            debug!("Using rpm verifier for OS {}", os_type);
+            Some(rpm::verify)
+        }
         _ => {
             warn!("No verifier found for OS {}", os_type);
             None
