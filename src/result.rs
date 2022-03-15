@@ -70,7 +70,7 @@ impl VerificationResult {
     /// # Examples
     /// 
     /// ```
-    /// use package_file_verify::{CheckResult, VerificationResult};
+    /// use package_file_verify::result::{CheckResult, VerificationResult};
     /// let result = VerificationResult::from_string(".?5????T c");
     /// assert_eq!(result.is_configuration(), true);
     /// assert_eq!(result.checksum(), CheckResult::Failed);
@@ -113,14 +113,14 @@ impl VerificationResult {
     /// # Examples
     /// 
     /// ```
-    /// use package_file_verify::VerificationResult;
+    /// use package_file_verify::result::VerificationResult;
     /// let result = VerificationResult::unknown();
     /// let string = result.to_string();
     /// assert_eq!(string, "????????");
     /// ```
     /// 
     /// ```
-    /// use package_file_verify::VerificationResult;
+    /// use package_file_verify::result::VerificationResult;
     /// let result = VerificationResult::from_string("??5????? c");
     /// let string = result.to_string();
     /// assert_eq!(string, "??5????? c");
