@@ -1,4 +1,4 @@
-use log::debug;
+use log::{debug, warn};
 
 use os_info;
 
@@ -18,11 +18,14 @@ pub fn get_verifier() -> Option<Verifier> {
 fn get_verifier_method(os_type: os_info::Type) -> Option<Verifier> {
     match os_type {
         os_info::Type::Debian
-            | os_info::Type::Ubuntu
-            | os_info::Type::Raspbian => {
-                debug!("Using dpkg verifier for OS {}", os_type);
-                Some(dpkg::verify)
-            },
-        _ => None,
+        | os_info::Type::Ubuntu
+        | os_info::Type::Raspbian => {
+            debug!("Using dpkg verifier for OS {}", os_type);
+            Some(dpkg::verify)
+        },
+        _ => {
+            warn!("No verifier found for OS {}", os_type);
+            None
+        },
     }
 }
