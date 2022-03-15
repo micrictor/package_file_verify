@@ -9,8 +9,8 @@ use package_file_verify::verifiers::resolver::get_verifier;
 #[clap(about, version)]
 struct Options {
     /// File path
-    #[clap(short, long, value_name = "FULL_PATH")]
-    file_path: String,
+    #[clap(value_name = "FULL_PATH")]
+    file_path: Option<String>,
 }
 
 fn main() {
@@ -21,7 +21,9 @@ fn main() {
     let verifier = get_verifier()
         .expect("failed to get verifier method");
     
-    let result = verifier(&options.file_path)
+    let fp = options.file_path
+        .expect("could not get file path");
+    let result = verifier(&fp)
         .expect("failed to get verification result");
     println!("{:?}", result)
 }
