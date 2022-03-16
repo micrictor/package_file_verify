@@ -3,6 +3,8 @@ name = "package_file_verify"
 version = "0.1.0"
 edition = "2021"
 description = "Verify if a given file is currently in the deployed state according to the local package manager."
+repository = "https://github.com/micrictor/package_file_verify"
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 os_info = { version = "3", default-features = false }
